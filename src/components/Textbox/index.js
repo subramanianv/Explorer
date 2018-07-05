@@ -25,7 +25,9 @@ class Textbox extends React.Component {
       optional,
       label,
       disabled,
-      placeholder
+      placeholder,
+      overlay,
+      value
     } = this.props;
 
     let labelText = label;
@@ -55,13 +57,16 @@ class Textbox extends React.Component {
             </Text>
           </div>
         ) : null}
-        <textarea
-          className={inputClass}
-          placeholder={placeholder}
-          disabled={disabled}
-          value={this.state.text}
-          onChange={this.onTextareaChange}
-        />
+        <div className={styles.textareaWrapper}>
+          <textarea
+            className={inputClass}
+            placeholder={placeholder}
+            disabled={disabled}
+            value={this.state.text || value}
+            onChange={this.onTextareaChange}
+          />
+          {overlay ? <div className={styles.overlay}>{overlay}</div> : null}
+        </div>
         {error ? (
           <div>
             <Text type="FormLabel" color={'red'}>

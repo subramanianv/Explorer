@@ -1,0 +1,22 @@
+@import "~styles/variables.scss";
+
+.markdownEditor {
+  height: 100%;
+  width: 100%;
+}
+
+.overlay {
+  cursor: pointer;
+}
+
+.overlay:hover {
+  color: $brand-blue-hover;
+}
+
+.overlayIcon {
+  margin-right: 5px;
+}
+
+.previewContent {
+  text-align: left;
+}

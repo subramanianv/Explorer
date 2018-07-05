@@ -24,7 +24,7 @@ class Header extends React.Component {
                 />
               </div>
             ) : null}
-            <div className={styles.headerContent}>
+            <div className={children ? styles.headerContent : ''}>
               {icon && !loadingIcon ? (
                 <div>
                   <FontAwesomeIcon icon={icon} className={styles.iconHeader} />
@@ -151,6 +151,7 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
   dismissable: PropTypes.bool,
+  visible: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   children: function(props, propName, componentName) {
     const children = props[propName];
