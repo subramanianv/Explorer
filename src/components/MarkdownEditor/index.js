@@ -6,7 +6,9 @@ import showdown from 'showdown';
 import { DEFAULT_MARKDOWN } from 'utils/constants';
 import { Textbox, Modal, Text } from 'components';
 
+showdown.setOption('simpleLineBreaks', true);
 const converter = new showdown.Converter();
+converter.setFlavor('github');
 
 class MarkdownEditor extends React.Component {
   state = {
@@ -64,6 +66,7 @@ class MarkdownEditor extends React.Component {
           value={textValue}
           disabled={disabled}
           onChange={this.onChange}
+          textAreaClass={styles.textArea}
           overlay={
             <Text
               type="Small"

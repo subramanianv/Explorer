@@ -20,6 +20,7 @@ class Textbox extends React.Component {
   render() {
     const {
       className,
+      textAreaClass,
       error,
       resizable,
       optional,
@@ -59,7 +60,7 @@ class Textbox extends React.Component {
         ) : null}
         <div className={styles.textareaWrapper}>
           <textarea
-            className={inputClass}
+            className={`${inputClass} ${textAreaClass}`}
             placeholder={placeholder}
             disabled={disabled}
             value={this.state.text || value}
