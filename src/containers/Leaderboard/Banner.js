@@ -17,13 +17,13 @@ const BannerComponent = props => {
       <PageCard.Title className={styles.titleText}>Leaderboard</PageCard.Title>
       <Switch
         onChange={leaderboardToggle}
-        onValue={'Top Issuer'}
+        onValue={'Top Issuers'}
         offValue={'Top Earners'}
-        value={toggleValue == 'issuer' ? 'Top Issuer' : 'Top Earners'}
-        selectedColor="white"
-        unselectedColor="lightGrey"
+        value={toggleValue == 'issuer' ? 'Top Issuers' : 'Top Earners'}
+        selectedColor="nearWhite"
+        unselectedColor="grey"
         backgroundColor="purple"
-        switchColor="purpleWhite"
+        switchColor="purpleGrey"
         size="large"
         curved
       />

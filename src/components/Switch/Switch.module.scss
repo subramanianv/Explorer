@@ -209,8 +209,8 @@
   display: block;
   position: absolute;
   z-index: 1;
-  top: 2px;
-  left: 2px;
+  top: 1px;
+  left: 1px;
   width: 58px;
   height: 22px;
   border-radius: 3px;
@@ -221,9 +221,15 @@
     width: 116px;
     height: 27.5px;
   }
+
   .curved & {
-    border-radius: 12px;
+    border-radius: 100px;
   }
+
+  &.purpleGrey {
+    background: #9b85b5;
+  }
+
   &.purple {
     background: $brand-purple;
   }
