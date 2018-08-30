@@ -1,4 +1,5 @@
 import web3 from 'public-modules/Utilities/Web3Client';
+import moment from 'moment';
 import { BigNumber } from 'bignumber.js';
 
 const required = value => {
@@ -18,6 +19,10 @@ const minValue = min => value => {
       : `Must be greater than ${min}`;
   }
 };
+const minDate = min => value =>
+  moment(min).diff(moment(value)) <= 0
+    ? undefined
+    : `Date must be after ${moment(min).format('MMMM Do YYYY, h:mm:ss a')}`;
 const totalLength = length => value =>
   value && value.length !== length ? `Must be ${length} characters` : undefined;
 const isWeb3Address = value =>
@@ -42,5 +47,6 @@ export default {
   email,
   alphaNumeric,
   totalLength,
-  isWeb3Address
+  isWeb3Address,
+  minDate
 };
