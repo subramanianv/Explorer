@@ -53,4 +53,8 @@ const ContributeFormModal = props => {
   );
 };
 
-export default reduxForm({ form: 'bountyContribute' })(ContributeFormModal);
+export default reduxForm({
+  form: 'bountyContribute',
+  enableReinitialize: true,
+  destroyOnUnmount: false
+})(ContributeFormModal);

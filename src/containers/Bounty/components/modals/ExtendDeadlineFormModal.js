@@ -55,4 +55,8 @@ const ExtendDeadlineFormModal = props => {
   );
 };
 
-export default reduxForm({ form: 'extendDeadline' })(ExtendDeadlineFormModal);
+export default reduxForm({
+  form: 'extendDeadline',
+  enableReinitialize: true,
+  destroyOnUnmount: false
+})(ExtendDeadlineFormModal);

@@ -99,4 +99,8 @@ const IncreasePayoutFormModal = props => {
   );
 };
 
-export default reduxForm({ form: 'increasePayout' })(IncreasePayoutFormModal);
+export default reduxForm({
+  form: 'increasePayout',
+  enableReinitialize: true,
+  destroyOnUnmount: false
+})(IncreasePayoutFormModal);

@@ -42,4 +42,8 @@ const KillBountyFormModal = props => {
   );
 };
 
-export default reduxForm({ form: 'killBounty' })(KillBountyFormModal);
+export default reduxForm({
+  form: 'killBounty',
+  enableReinitialize: true,
+  destroyOnUnmount: false
+})(KillBountyFormModal);

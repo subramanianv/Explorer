@@ -133,9 +133,11 @@ let FulfillBountyFormModalComponent = props => {
   );
 };
 
-FulfillBountyFormModalComponent = reduxForm({ form: 'fulfillBounty' })(
-  FulfillBountyFormModalComponent
-);
+FulfillBountyFormModalComponent = reduxForm({
+  form: 'fulfillBounty',
+  enableReinitialize: true,
+  destroyOnUnmount: false
+})(FulfillBountyFormModalComponent);
 
 const mapStateToProps = (state, router) => {
   const uploadState = getUploadKeySelector('fulfillment')(state);

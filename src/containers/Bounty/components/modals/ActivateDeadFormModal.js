@@ -62,4 +62,8 @@ const ActivateDeadFormModal = props => {
   );
 };
 
-export default reduxForm({ form: 'activateDead' })(ActivateDeadFormModal);
+export default reduxForm({
+  form: 'activateDead',
+  enableReinitialize: true,
+  destroyOnUnmount: false
+})(ActivateDeadFormModal);

@@ -62,4 +62,8 @@ const ActivateDraftFormModal = props => {
   );
 };
 
-export default reduxForm({ form: 'activateDraft' })(ActivateDraftFormModal);
+export default reduxForm({
+  form: 'activateDraft',
+  enableReinitialize: true,
+  destroyOnUnmount: false
+})(ActivateDraftFormModal);

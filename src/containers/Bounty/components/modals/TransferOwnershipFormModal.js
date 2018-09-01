@@ -50,6 +50,8 @@ const TransferOwnershipFormModal = props => {
   );
 };
 
-export default reduxForm({ form: 'transferOwnership' })(
-  TransferOwnershipFormModal
-);
+export default reduxForm({
+  form: 'transferOwnership',
+  enableReinitialize: true,
+  destroyOnUnmount: false
+})(TransferOwnershipFormModal);
