@@ -1,17 +1,17 @@
 {
-  "platform": "bees",
-  "postingPlatform": "bees",
+  "platform": "berlin",
+  "postingPlatform": "berlin",
   "postingSchema": "standardSchema",
   "postingSchemaVersion": "0.1",
-  "categoryPlatform": "bees",
-  "networkName": "bees.bounties.network",
+  "categoryPlatform": "berlin",
+  "networkName": "berlin.bounties.network",
   "url": {
     "mainNet": "https://staging.api.bounties.network",
     "rinkeby": "https://staging.api.bounties.network"
   },
   "defaultToken": {
-    "symbol": "HONEY",
-    "address": "0x68ed9256043c050102cd1b9e916fa680c5b070d9",
+    "symbol": "BRLN",
+    "address": "0x09b99b3598595b5ffb33835558534186f9aba778",
     "decimals": 18
   },
   "requiredNetwork": "rinkeby",
