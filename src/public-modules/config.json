@@ -1,20 +1,25 @@
 {
-  "platform": "bounties-network, gitcoin",
-  "postingPlatform": "bounties-network",
+  "platform": "bees",
+  "postingPlatform": "bees",
   "postingSchema": "standardSchema",
   "postingSchemaVersion": "0.1",
-  "categoryPlatform": "main",
-  "networkName": "staging.bounties.network",
+  "categoryPlatform": "bees",
+  "networkName": "bees.bounties.network",
   "url": {
     "mainNet": "https://staging.api.bounties.network",
-    "rinkeby": "https://rinkebystaging.api.bounties.network"
+    "rinkeby": "https://staging.api.bounties.network"
   },
-  "requiredNetwork": "",
+  "defaultToken": {
+    "symbol": "HONEY",
+    "address": "0x68ed9256043c050102cd1b9e916fa680c5b070d9",
+    "decimals": 18
+  },
+  "requiredNetwork": "rinkeby",
   "mainNet": {
     "standardBountiesAddress": "0x2af47a65da8CD66729b4209C22017d6A5C2d2400"
   },
   "rinkeby": {
-    "standardBountiesAddress": "0xDd1636B88e9071507e859e61991ed4be6647F420"
+    "standardBountiesAddress": "0xf209d2b723b6417cbf04c07e733bee776105a073"
   },
   "interfaces": {
     "StandardBounties": [
