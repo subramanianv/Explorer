@@ -1,9 +1,9 @@
 {
-  "platform": "bees",
-  "postingPlatform": "bees",
+  "platform": "beeess",
+  "postingPlatform": "beeess",
   "postingSchema": "standardSchema",
   "postingSchemaVersion": "0.1",
-  "categoryPlatform": "bees",
+  "categoryPlatform": "beeess",
   "networkName": "bees.bounties.network",
   "url": {
     "mainNet": "https://staging.api.bounties.network",
