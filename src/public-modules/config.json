@@ -6,15 +6,15 @@
   "categoryPlatform": "berlin",
   "networkName": "berlin.bounties.network",
   "url": {
-    "mainNet": "https://staging.api.bounties.network",
-    "rinkeby": "https://staging.api.bounties.network"
+    "mainNet": "https://new.api.bounties.network",
+    "rinkeby": "https://new.api.bounties.network"
   },
   "defaultToken": {
     "symbol": "BRLN",
-    "address": "0x09b99b3598595b5ffb33835558534186f9aba778",
+    "address": "0x80046305aaab08f6033b56a360c184391165dc2d",
     "decimals": 18
   },
-  "requiredNetwork": "rinkeby",
+  "requiredNetwork": "mainNet",
   "mainNet": {
     "standardBountiesAddress": "0x2af47a65da8CD66729b4209C22017d6A5C2d2400"
   },
