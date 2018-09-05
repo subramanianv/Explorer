@@ -10,8 +10,8 @@
     "rinkeby": "https://newrinkeby.api.bounties.network"
   },
   "defaultToken": {
-    "symbol": "HONEY",
-    "address": "0x68ed9256043c050102cd1b9e916fa680c5b070d9",
+    "symbol": "HNY",
+    "address": "0xcd97a31f7b839e5bdf354d5d28d1e257618efe2f",
     "decimals": 18
   },
   "requiredNetwork": "rinkeby",
