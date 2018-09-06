@@ -1,9 +1,9 @@
 {
-  "platform": "beeess",
-  "postingPlatform": "beeess",
+  "platform": "beees",
+  "postingPlatform": "beees",
   "postingSchema": "standardSchema",
   "postingSchemaVersion": "0.1",
-  "categoryPlatform": "beeess",
+  "categoryPlatform": "beees",
   "networkName": "bees.bounties.network",
   "url": {
     "mainNet": "https://newrinkeby.api.bounties.network",
