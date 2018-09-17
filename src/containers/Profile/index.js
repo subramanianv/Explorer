@@ -232,7 +232,7 @@ const Profile = compose(
       setProfileAddress: actions.setProfileAddress,
       showFilters: appActions.showFilterNav,
       initializeFilterNav: appActions.initializeFilterNav,
-      hideFilters: appActions.hideFilterNav
+      hideFilters: appActions.resetFilterNav
     }
   )
 )(ProfileComponent);

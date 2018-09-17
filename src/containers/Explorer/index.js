@@ -13,16 +13,9 @@ class Explorer extends React.Component {
   constructor(props) {
     super(props);
 
-    const {
-      resetState,
-      resetFilterNav,
-      load,
-      addPlatformFilter,
-      toggleStageFilter
-    } = props;
+    const { resetState, load, addPlatformFilter, toggleStageFilter } = props;
 
     resetState();
-    resetFilterNav();
     toggleStageFilter('active');
     addPlatformFilter(config.postingPlatform);
     load(true);
@@ -89,8 +82,7 @@ export default compose(
       resetFilters: actions.resetFilters,
       batch: actions.batch,
       openFilters: appActions.showFilterNav,
-      hideFilters: appActions.hideFilterNav,
-      resetFilterNav: appActions.resetFilterNav
+      hideFilters: appActions.hideFilterNav
     }
   ),
   withRouter

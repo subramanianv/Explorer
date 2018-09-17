@@ -2,8 +2,7 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import styles from './IssueRatingFormModal.module.scss';
-import { Button, Modal, Text, Loader } from 'components';
-import { LinkedAvatar } from 'explorer-components';
+import { Avatar, Button, Modal, Text, Loader } from 'components';
 import { Field, reduxForm } from 'redux-form';
 import validators from 'utils/validators';
 import { ModalFormReset } from 'hocs';
@@ -51,13 +50,12 @@ const IssueRatingFormModalComponent = props => {
   };
 
   let revieweeAvatar = (
-    <LinkedAvatar
+    <Avatar
       nameTextScale="h4"
       name={name}
       address={address}
       hash={address}
       img={img}
-      to={`/profile/${address}`}
     />
   );
 
