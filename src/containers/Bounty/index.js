@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Bounty.module.scss';
 import { withRouter } from 'react-router-dom';
-import { BigNumber } from 'bignumber.js';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { actions as bountyActions } from 'public-modules/Bounty';
@@ -26,7 +25,6 @@ import {
   getBountyStateSelector
 } from 'public-modules/Bounty/selectors';
 import { addressSelector } from 'public-modules/Client/selectors';
-import { fulfillmentsSelector } from 'public-modules/Fulfillments/selectors';
 import { DIFFICULTY_MAPPINGS } from 'public-modules/Bounty/constants';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { Pill, Text, Social, Loader, ZeroState } from 'components';
@@ -38,7 +36,6 @@ import {
 } from 'explorer-components';
 import { queryStringToObject } from 'utils/locationHelpers';
 import { locationNonceSelector } from 'layout/App/selectors';
-import { setParam } from 'utils/locationHelpers';
 
 showdown.setOption('simpleLineBreaks', true);
 const converter = new showdown.Converter();
@@ -58,8 +55,7 @@ class BountyComponent extends React.Component {
       resetFulfillmentsState,
       resetCommentsState,
       addBountyFilter,
-      setBountyId,
-      setActiveTab
+      setBountyId
     } = props;
 
     setBountyId(match.params.id);
@@ -97,13 +93,9 @@ class BountyComponent extends React.Component {
       resetFulfillmentsState,
       addBountyFilter,
       setBountyId,
-      setActiveTab,
       resetCommentsState,
       user,
-      history,
-      loaded,
-      bounty,
-      fulfillments
+      history
     } = this.props;
 
     // do this because for some reason match was stale
@@ -315,7 +307,7 @@ class BountyComponent extends React.Component {
                     </Text>
                   </div>
 
-                  {typeof bounty.revisions == 'number' && (
+                  {typeof bounty.revisions === 'number' && (
                     <div className={styles.metadataItem}>
                       <i className={styles.metadataIcon}>
                         <FontAwesomeIcon icon={['far', 'repeat']} />
@@ -398,7 +390,7 @@ class BountyComponent extends React.Component {
                 bounty={bounty}
                 isDraft={isDraft}
                 currentUser={user}
-                setActiveTab={setActiveTab}
+                setActiveTabAction={setActiveTab}
                 initiateLoginProtection={initiateLoginProtection}
                 initiateWalkthrough={initiateWalkthrough}
               />
@@ -415,7 +407,6 @@ const mapStateToProps = (state, router) => {
   const getBountyState = getBountyStateSelector(state);
   const draftBounty = getDraftBountySelector(state);
   const currentBounty = getBountySelector(state);
-  const fulfillmentsState = fulfillmentsSelector(state);
 
   const { match } = router;
   let bounty = currentBounty;
@@ -431,10 +422,6 @@ const mapStateToProps = (state, router) => {
   return {
     isDraft,
     bounty,
-    fulfillments: {
-      ...fulfillmentsState,
-      list: fulfillmentsState.fulfillments
-    },
     user: getCurrentUserSelector(state),
     walletAddress: addressSelector(state),
     loading: bountyState.loading,
