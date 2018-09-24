@@ -166,7 +166,7 @@ class BountyComponent extends React.Component {
       );
     }
 
-    if (loading || !bounty || (!fulfillments || fulfillments.loading)) {
+    if (loading || !bounty || (fulfillments.loading && !fulfillments.loaded)) {
       return (
         <div className={styles.centeredBody}>
           <Loader size="medium" />

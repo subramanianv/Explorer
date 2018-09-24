@@ -80,7 +80,6 @@ function FulfillmentsReducer(state = initialState, action) {
       return {
         ...state,
         loading: true,
-        loaded: false,
         error: false
       };
     }

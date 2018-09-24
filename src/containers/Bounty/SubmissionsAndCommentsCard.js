@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { map as fpMap } from 'lodash';
 import { SubmissionItem, NewCommentForm, CommentItem } from './components';
-import { Button, ListGroup, Tabs, Text, ZeroState } from 'components';
+import { Button, ListGroup, Loader, Tabs, Text, ZeroState } from 'components';
 import { rootBountyPageSelector } from './selectors';
 import { commentsSelector } from 'public-modules/Comments/selectors';
 import { actions as fulfillmentsActions } from 'public-modules/Fulfillments';
@@ -35,7 +35,7 @@ class SubmissionsAndCommentsCardComponent extends React.Component {
 
     const { setActiveTabAction: setActiveTab, fulfillments } = this.props;
 
-    setActiveTab(mostInterestingTab(fulfillments));
+    setActiveTab(mostInterestingTab(fulfillments), false);
   }
 
   render() {
@@ -228,6 +228,11 @@ class SubmissionsAndCommentsCardComponent extends React.Component {
           );
         }
       }
+
+      if (fulfillments.loading) {
+        bodyClass = styles.bodyLoading;
+        body = <Loader color="blue" size="medium" />;
+      }
     }
 
     if (currentTab === 'comments') {
@@ -294,6 +299,11 @@ class SubmissionsAndCommentsCardComponent extends React.Component {
             ]}
           </ListGroup>
         );
+      }
+
+      if (comments.loading) {
+        bodyClass = styles.bodyLoading;
+        body = <Loader color="blue" size="medium" />;
       }
     }
 

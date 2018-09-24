@@ -32,8 +32,8 @@ function setBountyId(bountyId) {
   return { type: SET_BOUNTY_ID, bountyId };
 }
 
-function setActiveTab(tabKey) {
-  return { type: SET_ACTIVE_TAB, tabKey };
+function setActiveTab(tabKey, fetch = true) {
+  return { type: SET_ACTIVE_TAB, tabKey, fetch };
 }
 
 function setRatingModal(fulfillmentId, reviewee) {
