@@ -4,9 +4,8 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { map as fpMap } from 'lodash';
 import { SubmissionItem, NewCommentForm, CommentItem } from './components';
-import { Button, ListGroup, Loader, Tabs, Text, ZeroState } from 'components';
+import { Button, ListGroup, Tabs, Text, ZeroState } from 'components';
 import { rootBountyPageSelector } from './selectors';
-import { fulfillmentsSelector } from 'public-modules/Fulfillments/selectors';
 import { commentsSelector } from 'public-modules/Comments/selectors';
 import { actions as fulfillmentsActions } from 'public-modules/Fulfillments';
 import { actions as fulfillmentActions } from 'public-modules/Fulfillment';
@@ -34,34 +33,9 @@ class SubmissionsAndCommentsCardComponent extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      tabLoaded: false
-    };
-  }
+    const { setActiveTabAction: setActiveTab, fulfillments } = this.props;
 
-  setMostInterestingTab() {
-    if (!this.state.tabLoaded) {
-      const {
-        setActiveTabAction: setActiveTab,
-        fulfillments,
-        comments
-      } = this.props;
-
-      if (!fulfillments.loading && !comments.loading) {
-        this.setState({
-          tabLoaded: true
-        });
-        setActiveTab(mostInterestingTab(fulfillments));
-      }
-    }
-  }
-
-  componentDidUpdate() {
-    this.setMostInterestingTab();
-  }
-
-  componentDidMount() {
-    this.setMostInterestingTab();
+    setActiveTab(mostInterestingTab(fulfillments));
   }
 
   render() {
@@ -254,11 +228,6 @@ class SubmissionsAndCommentsCardComponent extends React.Component {
           );
         }
       }
-
-      if (fulfillments.loading) {
-        bodyClass = styles.bodyLoading;
-        body = <Loader color="blue" size="medium" />;
-      }
     }
 
     if (currentTab === 'comments') {
@@ -326,11 +295,6 @@ class SubmissionsAndCommentsCardComponent extends React.Component {
           </ListGroup>
         );
       }
-
-      if (comments.loading) {
-        bodyClass = styles.bodyLoading;
-        body = <Loader color="blue" size="medium" />;
-      }
     }
 
     return (
@@ -376,7 +340,6 @@ class SubmissionsAndCommentsCardComponent extends React.Component {
 
 const mapStateToProps = (state, router) => {
   const bountyPage = rootBountyPageSelector(state);
-  const fulfillmentsState = fulfillmentsSelector(state);
   const commentsState = commentsSelector(state);
 
   return {
@@ -386,10 +349,6 @@ const mapStateToProps = (state, router) => {
     currentTab: bountyPage.currentTab,
 
     // data
-    fulfillments: {
-      ...fulfillmentsState,
-      list: fulfillmentsState.fulfillments
-    },
     comments: {
       ...commentsState,
       list: commentsState.comments

@@ -24,6 +24,7 @@ import {
   getBountySelector,
   getBountyStateSelector
 } from 'public-modules/Bounty/selectors';
+import { fulfillmentsSelector } from 'public-modules/Fulfillments/selectors';
 import { addressSelector } from 'public-modules/Client/selectors';
 import { DIFFICULTY_MAPPINGS } from 'public-modules/Bounty/constants';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
@@ -114,7 +115,6 @@ class BountyComponent extends React.Component {
 
         loadBounty(bountyId);
         addBountyFilter(bountyId);
-        loadFulfillments(bountyId);
 
         const values = queryStringToObject(location.search);
 
@@ -140,6 +140,7 @@ class BountyComponent extends React.Component {
   render() {
     const {
       user,
+      fulfillments,
       loading,
       error,
       isDraft,
@@ -165,7 +166,7 @@ class BountyComponent extends React.Component {
       );
     }
 
-    if (loading || !bounty) {
+    if (loading || !bounty || (!fulfillments || fulfillments.loading)) {
       return (
         <div className={styles.centeredBody}>
           <Loader size="medium" />
@@ -392,6 +393,7 @@ class BountyComponent extends React.Component {
             >
               <SubmissionsAndCommentsCard
                 bounty={bounty}
+                fulfillments={fulfillments}
                 isDraft={isDraft}
                 currentUser={user}
                 setActiveTabAction={setActiveTab}
@@ -411,6 +413,7 @@ const mapStateToProps = (state, router) => {
   const getBountyState = getBountyStateSelector(state);
   const draftBounty = getDraftBountySelector(state);
   const currentBounty = getBountySelector(state);
+  const fulfillmentsState = fulfillmentsSelector(state);
 
   const { match } = router;
   let bounty = currentBounty;
@@ -430,7 +433,11 @@ const mapStateToProps = (state, router) => {
     walletAddress: addressSelector(state),
     loading: bountyState.loading,
     error: bountyState.error,
-    locationNonce: locationNonceSelector(state)
+    locationNonce: locationNonceSelector(state),
+    fulfillments: {
+      ...fulfillmentsState,
+      list: fulfillmentsState.fulfillments
+    }
   };
 };
 
