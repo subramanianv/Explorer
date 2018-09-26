@@ -37,6 +37,7 @@ import {
 import { queryStringToObject } from 'utils/locationHelpers';
 import { shortenFileName, shortenUrl } from 'utils/helpers';
 import { locationNonceSelector } from 'layout/App/selectors';
+import { SEOHeader } from './components';
 
 showdown.setOption('simpleLineBreaks', true);
 const converter = new showdown.Converter();
@@ -175,6 +176,7 @@ class BountyComponent extends React.Component {
 
     return (
       <div>
+        <SEOHeader bounty={bounty} />
         <PageCard>
           <PageCard.Header className={styles.bountyPageCardHeader}>
             <div className={styles.header}>
@@ -185,6 +187,7 @@ class BountyComponent extends React.Component {
                 primaryColor="white"
                 primaryClassName={styles.primary}
                 primaryContainerClass={styles.primaryContainerClass}
+                currencyColor="white"
                 secondaryValue={bounty.calculated_fulfillmentAmount}
                 secondaryCurrency={bounty.tokenSymbol}
                 secondaryTypeScale="h4"
