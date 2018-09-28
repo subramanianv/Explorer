@@ -1,18 +1,13 @@
 {
-  "platform": "berlin",
-  "postingPlatform": "berlin",
+  "platform": "sf",
+  "postingPlatform": "sf",
   "postingSchema": "standardSchema",
   "postingSchemaVersion": "0.1",
-  "categoryPlatform": "berlin",
-  "networkName": "berlin.bounties.network",
+  "categoryPlatform": "sf",
+  "networkName": "sf.bounties.network",
   "url": {
     "mainNet": "https://new.api.bounties.network",
     "rinkeby": "https://new.api.bounties.network"
-  },
-  "defaultToken": {
-    "symbol": "BRLN",
-    "address": "0x80046305aaab08f6033b56a360c184391165dc2d",
-    "decimals": 18
   },
   "requiredNetwork": "mainNet",
   "mainNet": {
