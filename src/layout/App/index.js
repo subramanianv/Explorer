@@ -30,7 +30,8 @@ import {
   SideOverlay,
   Dropdown,
   Text
-} from 'components';
+} from 'bounties-components';
+
 import { BountyFilterNav } from 'containers/FilterNav';
 import { Header, Privacy, TOS } from 'layout';
 import { rootAppSelector } from './selectors';
